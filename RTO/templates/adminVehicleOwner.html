@@ -1,0 +1,55 @@
+{% extends "adminBase.html" %} {% block content %}
+<style>
+	table,
+	th,
+	td {
+		border: 1px solid brown;
+	}
+	th,
+	td {
+		padding: 10px;
+	}
+	table {
+		margin: auto;
+		width: 80%;
+		text-align: center;
+	}
+</style>
+<div class="w3l-main-slider position-relative" id="home">
+	<div class="w3l-bannerhny-content">
+		<div class="container">
+			<div class="w3l-bannerhny-info">
+				<h3 class="mb-md-5 mb-2">Vehicle Registration</h3>
+			</div>
+		</div>
+	</div>
+</div>
+<section id="contact" class="contact">
+	<div class="container">
+		<section id="about" class="clients">
+			<div class="container">
+				<table>
+					<tr>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Contact</th>
+						<th>Vehicle</th>
+						<th>Registration No.</th>
+						<th>Address</th>
+					</tr>
+					{% for d in data %}
+					<tr>
+						<td>{{d.4}}</td>
+						<td>{{d.6}}</td>
+						<td>{{d.5}}</td>
+						<td>{{d.9}} {{d.10}}</td>
+						<td>{{d.2}}</td>
+						<td>{{d.7}}</td>
+					</tr>
+					{% endfor %}
+				</table>
+			</div>
+		</section>
+	</div>
+</section>
+{% endblock %}

@@ -1,0 +1,154 @@
+{% extends "rtoBase.html" %} {% block content %}
+<style>
+	table,
+	th,
+	td {
+		border: 1px solid brown;
+	}
+	th,
+	td {
+		padding: 10px;
+	}
+	table {
+		margin: auto;
+		width: 80%;
+		text-align: center;
+	}
+</style>
+<div class="w3l-main-slider position-relative" id="home">
+	<div class="w3l-bannerhny-content">
+		<div class="container">
+			<div class="w3l-bannerhny-info">
+				<h3 class="mb-md-5 mb-2">Vehicle Registration</h3>
+			</div>
+		</div>
+	</div>
+</div>
+<section id="contact" class="contact">
+	<div class="container">
+		<div class="section-title">
+			<h6 class="title-subw3hny mb-2"><span>Registration</span></h6>
+		</div>
+		<div class="row">
+			<div
+				class="col-lg-7 mt-lg-0 mt-5 container"
+				data-aos="fade-up"
+				data-aos-duration="3000"
+			>
+				<form action="" method="post" role="form" class="php-email-form">
+					{% csrf_token %}
+					<div class="row">
+						<div class="col form-group">
+							<select name="vid" id="">
+								<option value="" selected disabled>Select Vehicle</option>
+								{% for v in vehicles %}
+								<option value="{{v.0}}">{{v.1}}</option>
+								{% endfor %}
+							</select>
+						</div>
+						<div class="col form-group">
+							<input
+								type="email"
+								class="form-control"
+								name="email"
+								id="w3lSender"
+								placeholder="Email"
+								required=""
+							/>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col form-group">
+							<input
+								type="text"
+								class="form-control"
+								name="regno"
+								id="w3lSender"
+								placeholder="Registration Number"
+								required=""
+							/>
+						</div>
+						<div class="col form-group">
+							<input
+								type="date"
+								class="form-control"
+								name="date"
+								id="w3lName"
+								placeholder="Date"
+								required=""
+							/>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col form-group">
+							<input
+								type="text"
+								class="form-control"
+								name="name"
+								id="w3lSender"
+								placeholder="Customer Name"
+								required=""
+							/>
+						</div>
+						<div class="col form-group">
+							<input
+								type="text"
+								class="form-control"
+								name="phone"
+								pattern="[6789][0-9]{9}"
+								maxlength="10"
+								id="w3lName"
+								placeholder="Phone"
+								required=""
+							/>
+						</div>
+					</div>
+					<div class="form-group">
+						<textarea
+							name="adrs"
+							class="form-control"
+							id="w3lMessage"
+							placeholder="Address"
+							required=""
+						></textarea>
+					</div>
+					<div class="row"></div>
+					<div class="w3lhny-submit text-center">
+						<button
+							type="submit"
+							name="submit"
+							class="btn btn-primary btn-style"
+						>
+							Register
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<section id="about" class="clients">
+			<div class="container">
+				<table>
+					<tr>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Contact</th>
+						<th>Vehicle</th>
+						<th>Registration No.</th>
+						<th>Address</th>
+					</tr>
+					{% for d in data %}
+					<tr>
+						<td>{{d.4}}</td>
+						<td>{{d.6}}</td>
+						<td>{{d.5}}</td>
+						<td>{{d.9}} {{d.10}}</td>
+						<td>{{d.2}}</td>
+						<td>{{d.7}}</td>
+					</tr>
+					{% endfor %}
+				</table>
+			</div>
+		</section>
+	</div>
+</section>
+{% endblock %}

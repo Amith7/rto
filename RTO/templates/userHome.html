@@ -1,0 +1,25 @@
+
+{% extends "userBase.html" %} {% block content %}
+<div class="w3l-main-slider position-relative" id="home">
+	<div class="w3l-bannerhny-content">
+		<div class="container">
+			<div class="w3l-bannerhny-info">
+				<h3 class="mb-md-5 mb-2">Welcome User</h3>
+			</div>
+		</div>
+	</div>
+</div>
+<section style="margin: auto; text-align: center">
+	<h3>Name: {{data.4}}</h3>
+	<br />
+	<h3>Email: {{data.6}}</h3>
+	<br />
+	<h3>Phone: {{data.5}}</h3>
+	<br />
+	<h3>Address: {{data.7}}</h3>
+	<br />
+	<h3>Registration Number: {{data.2}}</h3>
+	<br />
+</section>
+<section style="background-color: #fff; height: 600px"></section>
+{% endblock %}

@@ -1,0 +1,145 @@
+{% extends "adminBase.html" %} {% block content %}
+<style>
+	table,
+	th,
+	td {
+		border: 1px solid brown;
+	}
+	th,
+	td {
+		padding: 10px;
+	}
+	table {
+		margin: auto;
+		width: 80%;
+		text-align: center;
+	}
+</style>
+<div class="w3l-main-slider position-relative" id="home">
+	<div class="w3l-bannerhny-content">
+		<div class="container">
+			<div class="w3l-bannerhny-info">
+				<h3 class="mb-md-5 mb-2">Add Vehicles</h3>
+			</div>
+		</div>
+	</div>
+</div>
+<section id="contact" class="contact">
+	<div class="container">
+		<div class="section-title">
+			<h6 class="title-subw3hny mb-2"><span></span></h6>
+		</div>
+		<div class="row">
+			<div
+				class="col-lg-7 mt-lg-0 mt-5 container"
+				data-aos="fade-up"
+				data-aos-duration="3000"
+			>
+				<form action="" method="post" role="form" class="php-email-form">
+					{% csrf_token %}
+					<div class="row">
+						<div class="col form-group">
+							<input
+								type="text"
+								class="form-control"
+								name="name"
+								id="w3lName"
+								placeholder="Vehicle Name"
+								required=""
+							/>
+						</div>
+						<div class="col form-group">
+							<input
+								type="text"
+								class="form-control"
+								name="brand"
+								id="w3lSender"
+								placeholder="Brand"
+								required=""
+							/>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col form-group">
+							<input
+								type="text"
+								class="form-control"
+								name="model"
+								id="w3lName"
+								placeholder="Model"
+								required=""
+							/>
+						</div>
+						<div class="col form-group">
+							<input
+								type="text"
+								class="form-control"
+								name="capacity"
+								id="w3lSender"
+								placeholder="Seating Capacity"
+								required=""
+							/>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col form-group">
+							<input
+								type="text"
+								class="form-control"
+								name="fuel"
+								id="w3lName"
+								placeholder="Fuel Capacity"
+								required=""
+							/>
+						</div>
+						<div class="col form-group">
+							<input
+								type="number"
+								class="form-control"
+								name="tax"
+								id="w3lName"
+								placeholder="Yearly Tax Amount"
+								required=""
+							/>
+						</div>
+					</div>
+					<div class="row"></div>
+					<div class="w3lhny-submit text-center">
+						<button
+							type="submit"
+							name="submit"
+							class="btn btn-primary btn-style"
+						>
+							Add
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<section id="about" class="clients">
+			<div class="container">
+				<table>
+					<tr>
+						<th>Vehicle Name</th>
+						<th>Brand</th>
+						<th>Model</th>
+						<th>Seating Capacity</th>
+						<th>Fule Capacity</th>
+						<th>Tax Amount(Yearly)</th>
+					</tr>
+					{% for d in data %}
+					<tr>
+						<td>{{d.1}}</td>
+						<td>{{d.2}}</td>
+						<td>{{d.5}}</td>
+						<td>{{d.3}}</td>
+						<td>{{d.4}}</td>
+						<td>{{d.6}}</td>
+					</tr>
+					{% endfor %}
+				</table>
+			</div>
+		</section>
+	</div>
+</section>
+{% endblock %}
